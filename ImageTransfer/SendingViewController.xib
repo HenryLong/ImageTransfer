@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CBSendingViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendingViewController">
             <connections>
                 <outlet property="imageView" destination="21" id="yaj-WB-dvr"/>
                 <outlet property="result" destination="8BJ-ph-gXZ" id="bR2-kO-I70"/>
@@ -39,7 +39,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="sendAndroid" destination="-1" eventType="touchUpInside" id="D6g-Od-HCs"/>
+                        <action selector="sendAndroid:" destination="-1" eventType="touchDown" id="pL0-dG-CWf"/>
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="8BJ-ph-gXZ" userLabel="Text Field">

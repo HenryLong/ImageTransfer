@@ -55,8 +55,7 @@
     [sender resignFirstResponder];
 }
 
-
-- (IBAction) sendAndroid{
+- (IBAction) sendAndroid:(id)sender{
     [self initNetworkCommunication];
      //NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
      imageData = UIImageJPEGRepresentation(self.imageView.image, 1.0);
