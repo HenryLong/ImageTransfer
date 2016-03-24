@@ -16,7 +16,7 @@
 		410C192F1C97D8B3006C20F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410C192E1C97D8B3006C20F7 /* Foundation.framework */; };
 		410C19311C97D8BF006C20F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410C19301C97D8BF006C20F7 /* CoreGraphics.framework */; };
 		410C19351C97DDB7006C20F7 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 410C19341C97DDB7006C20F7 /* Placeholder.png */; };
-		410C19381C97E042006C20F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410C19361C97E042006C20F7 /* Main.storyboard */; };
+		413138A21CA3D51500A9550F /* Qisda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 413138A11CA3D51500A9550F /* Qisda.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		410C192E1C97D8B3006C20F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		410C19301C97D8BF006C20F7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		410C19341C97DDB7006C20F7 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
-		410C19371C97E042006C20F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		413138A11CA3D51500A9550F /* Qisda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Qisda.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,6 @@
 				410C190D1C97D440006C20F7 /* AppDelegate.h */,
 				410C190E1C97D440006C20F7 /* AppDelegate.m */,
 				410C19161C97D440006C20F7 /* Assets.xcassets */,
-				410C19361C97E042006C20F7 /* Main.storyboard */,
 				410C191B1C97D440006C20F7 /* Info.plist */,
 				410C192B1C97D79C006C20F7 /* Sending */,
 				410C190A1C97D440006C20F7 /* Supporting Files */,
@@ -113,6 +112,7 @@
 		410C19331C97DDB7006C20F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				413138A11CA3D51500A9550F /* Qisda.jpg */,
 				410C19341C97DDB7006C20F7 /* Placeholder.png */,
 			);
 			path = Images;
@@ -178,8 +178,8 @@
 			files = (
 				410C192A1C97D78F006C20F7 /* SendingViewController.xib in Resources */,
 				410C19351C97DDB7006C20F7 /* Placeholder.png in Resources */,
+				413138A21CA3D51500A9550F /* Qisda.jpg in Resources */,
 				410C19171C97D440006C20F7 /* Assets.xcassets in Resources */,
-				410C19381C97E042006C20F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,17 +197,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		410C19361C97E042006C20F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				410C19371C97E042006C20F7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		410C191C1C97D440006C20F7 /* Debug */ = {
@@ -333,6 +322,7 @@
 				410C19201C97D440006C20F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
