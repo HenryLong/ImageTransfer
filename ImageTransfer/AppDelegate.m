@@ -12,6 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //NSLog(@"didFinishLaunchingWithOptions");
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.viewController = [[SendingViewController alloc] initWithNibName:@"SendingViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
@@ -45,6 +46,34 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+{
+    NSLog(@"Launch url: %@", url);
+    [self readFromExtension];
+    
+    if(self.viewController.imageArrayData.count != 0){
+        [self.viewController processImageList];
+    }
+    return  YES;
+}
+
+- (void)readFromExtension{
+    NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:@"group.ios.image.share"];
+    NSMutableArray *url = [shared valueForKey:@"url"];
+    NSMutableArray *imageData = [NSKeyedUnarchiver unarchiveObjectWithData:[shared valueForKey:@"imageData"]] ;
+    
+    NSLog(@"readUrlFromExtension url: %@", url);
+    NSLog(@"readUrlFromExtension imageData: %@", imageData);
+    
+    self.viewController.imageArrayUrl = [NSMutableArray arrayWithArray:url];
+    self.viewController.imageArrayData = [NSMutableArray arrayWithArray:imageData];
+
+    [shared removeObjectForKey:@"url"];  // delete key after read
+    [shared removeObjectForKey:@"imageData"];  // delete key after read
+}
+
 
 @end
 

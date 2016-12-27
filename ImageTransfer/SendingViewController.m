@@ -7,47 +7,33 @@
 //
 
 #import "SendingViewController.h"
-
-@interface SendingViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-@property (strong, nonatomic) UIImagePickerController *imagePicker;
-@end
+#import <AssetsLibrary/AssetsLibrary.h>
 
 
 @implementation SendingViewController
-@synthesize inputStream, outputStream;
-@synthesize imageData;
-@synthesize result;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-- (void) initNetworkCommunication {
     
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    NSString *ip = @"192.168.49.1";
-    UInt32 port = 8988;
-    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ip, port, &readStream, &writeStream);
+    NSString * path = [[NSBundle mainBundle] pathForResource: @"Qisda" ofType: @"jpg"];   //default picture
+    NSURL * url = [NSURL fileURLWithPath: path];
+    self.fileName.text = [url lastPathComponent];
+    self.imageData = [NSData dataWithContentsOfURL:url];  //construct imageData
     
-    inputStream = (__bridge NSInputStream *)readStream;
-    outputStream = (__bridge NSOutputStream *)writeStream;
-    [inputStream setDelegate:self];
-    [outputStream setDelegate:self];
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [inputStream open];
-    [outputStream open];
-     byteIndex =0;
+    //Initiate SendingClent
+    mSendingClient = [[SendingFileClient alloc] init];
+    [mSendingClient setview: self];
     
+    //Initiate ReceivingFileServer
+    mReceivingFileServer = [[ReceivingFileServer alloc] init];
+    [mReceivingFileServer setview: self];
+    [mReceivingFileServer setup];
 }
 
 - (IBAction)dismissViewController:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [inputStream close];
-    [outputStream close];
 }
 
 - (IBAction)hideKeyboard:(UITextField *)sender
@@ -56,21 +42,33 @@
 }
 
 - (IBAction) sendAndroid:(id)sender{
-    [self initNetworkCommunication];
-     //NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
-     imageData = UIImageJPEGRepresentation(self.imageView.image, 1.0);
+    [mSendingClient initNetworkCommunication];
 }
 
 /* chose from gallery */
 - (IBAction)chooseImage:(id)sender
 {
     [self presentViewController:self.imagePicker animated:YES completion:nil];
+    self.send.enabled = true;
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.imageView.image = image;
     [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+    self.imageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];;
+    self.imageData = UIImageJPEGRepresentation(self.imageView.image, 1.0);  //we have raw data here
+    //self.imageData = UIImagePNGRepresentation(self.imageView.image);
+    
+    ALAssetsLibrary *assetLibray = [[ALAssetsLibrary alloc] init];
+    [assetLibray assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL] resultBlock:^(ALAsset *asset){
+        self.fileName.text = asset.defaultRepresentation.filename; //we have name here
+        self.path = asset.defaultRepresentation.url; //we have path here
+        NSLog(@"image name is %@", self.fileName.text);
+        NSLog(@"image path is %@", self.path);
+        [mSendingClient initNetworkCommunication]; //send it directly
+    } failureBlock:^(NSError *err){
+        NSLog(@"err:%@",err);
+    }];
 }
 
 #pragma mark - Getter
@@ -89,91 +87,36 @@
     return _imagePicker;
 }
 
-- (NSData *)prepareData:(NSData *)data
-{
-    NSUInteger length = [data length];
-    NSMutableData *sendingData = [[NSMutableData alloc] init];
-    NSUInteger size = sizeof(NSUInteger);   //be carefule it, before iphone 5/iPad 4 (included), NSUInteger size of is 4
-    [sendingData appendBytes:&length length:size];
-    [sendingData appendData:data];
-    return sendingData;
-}
 
-- (void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent {
-    
-    //NSLog(@"stream event %i", streamEvent);
-    
-    switch (streamEvent) {
-            
-        case NSStreamEventOpenCompleted:
-            NSLog(@"Stream opened!");
-            result.text = @"Stream opened!";
-            break;
-        case NSStreamEventHasBytesAvailable:
-            
-            if (theStream == inputStream) {  //response from server , but not be used in the prj now
-                uint8_t buffer[1024];
-                NSUInteger len;
-                
-                while ([inputStream hasBytesAvailable]) {
-                    len = [inputStream read:buffer maxLength:sizeof(buffer)];
-                    if (len > 0) {
-                        
-                        NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
-                        
-                        if (nil != output) {
-                            NSLog(@"server said: %@", output);
-                            result.text = output;
-                            
-                        }
-                    }
-                }
-            }
-            break;
-            
-            
-        case NSStreamEventErrorOccurred:
-            
-            NSLog(@"Can not connect to the host!");
-            result.text = @"Can not connect to the host!";
-            break;
-            
-        case NSStreamEventEndEncountered:
-            NSLog(@"NSStreamEventEndEncountered!");
-            result.text = @"NSStreamEventEndEncountered!";
-            if(theStream == outputStream){
-               [inputStream close];
-               [outputStream close];
-            }
-            
-            break;
-        case NSStreamEventHasSpaceAvailable:
-            if (theStream == outputStream){
-                NSLog(@"NSStreamEventHasSpaceAvailable!");
-                result.text = @"NSStreamEventHasSpaceAvailable!";
-                
-                uint8_t *readBytes = (uint8_t *)[imageData bytes];
-                readBytes += byteIndex; // instance variable to move pointer
-                NSUInteger data_len = [imageData length];
-                NSUInteger len = ((data_len - byteIndex >= 1024) ?
-                                    1024 : (data_len - byteIndex));
-                uint8_t buf[len];
-                (void)memcpy(buf, readBytes, len);
-                len = [outputStream write:(const uint8_t *)buf maxLength:len];
-                byteIndex += len;
-                break;
-            }
-            
-            break;
-        default:
-            NSLog(@"Unknown event");
-            result.text = @"Unknown event";
+- (NSUInteger) processImageList{
+    NSLog(@"imageArrayData count: %ld", self.imageArrayData.count);
+    NSUInteger mCount = self.imageArrayData.count;
+    if(self.imageArrayData.count != 0){
+        //deliver first index
+        [self openImageURL: [NSURL fileURLWithPath: [self.imageArrayUrl objectAtIndex:0]]];
+        [self openImageData: [self.imageArrayData objectAtIndex:0]];
+        
+        [mSendingClient initNetworkCommunication];
+        
+        [self.imageArrayUrl removeObjectAtIndex:0];
+        [self.imageArrayData removeObjectAtIndex:0];
     }
-    
+    return mCount;
+}
+
+- (void)openImageURL: (NSURL*)url
+{
+    NSLog(@"openImageURL: %@",url);
+    self.path = [url path]; //we have path here
+    self.fileName.text = [url lastPathComponent];
 }
 
 
-
-
+- (void)openImageData: (UIImage*)image
+{
+    NSLog(@"openImageData: %@",image);
+    self.imageData = UIImageJPEGRepresentation(image, 1.0);   //construct imageData
+    self.imageView.image = image;
+}
 
 @end

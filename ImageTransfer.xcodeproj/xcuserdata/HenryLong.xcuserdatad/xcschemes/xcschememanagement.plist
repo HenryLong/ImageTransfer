@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ImageTransferExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>410C19061C97D440006C20F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>410F231B1DE80F3A00CE1236</key>
 		<dict>
 			<key>primary</key>
 			<true/>

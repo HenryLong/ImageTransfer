@@ -16,8 +16,37 @@
 		410C192F1C97D8B3006C20F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410C192E1C97D8B3006C20F7 /* Foundation.framework */; };
 		410C19311C97D8BF006C20F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410C19301C97D8BF006C20F7 /* CoreGraphics.framework */; };
 		410C19351C97DDB7006C20F7 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 410C19341C97DDB7006C20F7 /* Placeholder.png */; };
+		410F23201DE80F3A00CE1236 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410F231F1DE80F3A00CE1236 /* ShareViewController.m */; };
+		410F23271DE80F3A00CE1236 /* ImageTransferExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 410F231C1DE80F3A00CE1236 /* ImageTransferExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		413138A21CA3D51500A9550F /* Qisda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 413138A11CA3D51500A9550F /* Qisda.jpg */; };
+		41AD2F8C1E0BD0D400128680 /* ReceivingFileServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AD2F8B1E0BD0D400128680 /* ReceivingFileServer.m */; };
+		41AD2F8F1E0D0DD000128680 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AD2F8E1E0D0DD000128680 /* MobileCoreServices.framework */; };
+		41DA98D31E03972500D82F98 /* SendingFileClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DA98D11E03972500D82F98 /* SendingFileClient.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		410F23251DE80F3A00CE1236 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 410C18FF1C97D440006C20F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 410F231B1DE80F3A00CE1236;
+			remoteInfo = ImageTransferExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		410F232B1DE80F3A00CE1236 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				410F23271DE80F3A00CE1236 /* ImageTransferExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		410C19071C97D440006C20F7 /* ImageTransfer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTransfer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +62,18 @@
 		410C192E1C97D8B3006C20F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		410C19301C97D8BF006C20F7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		410C19341C97DDB7006C20F7 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
+		410F231C1DE80F3A00CE1236 /* ImageTransferExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ImageTransferExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		410F231E1DE80F3A00CE1236 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		410F231F1DE80F3A00CE1236 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		410F23241DE80F3A00CE1236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		413138A11CA3D51500A9550F /* Qisda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Qisda.jpg; sourceTree = "<group>"; };
+		41AD2F8A1E0BD0D400128680 /* ReceivingFileServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivingFileServer.h; sourceTree = "<group>"; };
+		41AD2F8B1E0BD0D400128680 /* ReceivingFileServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivingFileServer.m; sourceTree = "<group>"; };
+		41AD2F8E1E0D0DD000128680 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		41AD2F901E10AADE00128680 /* ImageTransferExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageTransferExtension.entitlements; sourceTree = "<group>"; };
+		41AD2F911E10AB0A00128680 /* ImageTransfer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageTransfer.entitlements; sourceTree = "<group>"; };
+		41DA98D01E03972500D82F98 /* SendingFileClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendingFileClient.h; sourceTree = "<group>"; };
+		41DA98D11E03972500D82F98 /* SendingFileClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendingFileClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +87,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		410F23191DE80F3A00CE1236 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41AD2F8F1E0D0DD000128680 /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,7 +103,9 @@
 			children = (
 				410C19091C97D440006C20F7 /* ImageTransfer */,
 				410C19321C97D8CC006C20F7 /* Framework */,
+				410F231D1DE80F3A00CE1236 /* ImageTransferExtension */,
 				410C19081C97D440006C20F7 /* Products */,
+				41AD2F8D1E0D0DCF00128680 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				410C19071C97D440006C20F7 /* ImageTransfer.app */,
+				410F231C1DE80F3A00CE1236 /* ImageTransferExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,11 +121,16 @@
 		410C19091C97D440006C20F7 /* ImageTransfer */ = {
 			isa = PBXGroup;
 			children = (
+				41AD2F911E10AB0A00128680 /* ImageTransfer.entitlements */,
 				410C190D1C97D440006C20F7 /* AppDelegate.h */,
 				410C190E1C97D440006C20F7 /* AppDelegate.m */,
+				410C19251C97D78F006C20F7 /* SendingViewController.h */,
+				410C19261C97D78F006C20F7 /* SendingViewController.m */,
+				410C19271C97D78F006C20F7 /* SendingViewController.xib */,
+				410C192B1C97D79C006C20F7 /* Sending */,
+				41DA98D41E03972D00D82F98 /* Receiving */,
 				410C19161C97D440006C20F7 /* Assets.xcassets */,
 				410C191B1C97D440006C20F7 /* Info.plist */,
-				410C192B1C97D79C006C20F7 /* Sending */,
 				410C190A1C97D440006C20F7 /* Supporting Files */,
 			);
 			path = ImageTransfer;
@@ -92,9 +148,8 @@
 		410C192B1C97D79C006C20F7 /* Sending */ = {
 			isa = PBXGroup;
 			children = (
-				410C19251C97D78F006C20F7 /* SendingViewController.h */,
-				410C19261C97D78F006C20F7 /* SendingViewController.m */,
-				410C19271C97D78F006C20F7 /* SendingViewController.xib */,
+				41DA98D01E03972500D82F98 /* SendingFileClient.h */,
+				41DA98D11E03972500D82F98 /* SendingFileClient.m */,
 			);
 			name = Sending;
 			sourceTree = "<group>";
@@ -118,6 +173,34 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		410F231D1DE80F3A00CE1236 /* ImageTransferExtension */ = {
+			isa = PBXGroup;
+			children = (
+				41AD2F901E10AADE00128680 /* ImageTransferExtension.entitlements */,
+				410F231E1DE80F3A00CE1236 /* ShareViewController.h */,
+				410F231F1DE80F3A00CE1236 /* ShareViewController.m */,
+				410F23241DE80F3A00CE1236 /* Info.plist */,
+			);
+			path = ImageTransferExtension;
+			sourceTree = "<group>";
+		};
+		41AD2F8D1E0D0DCF00128680 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41AD2F8E1E0D0DD000128680 /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41DA98D41E03972D00D82F98 /* Receiving */ = {
+			isa = PBXGroup;
+			children = (
+				41AD2F8A1E0BD0D400128680 /* ReceivingFileServer.h */,
+				41AD2F8B1E0BD0D400128680 /* ReceivingFileServer.m */,
+			);
+			name = Receiving;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,15 +211,34 @@
 				410C19031C97D440006C20F7 /* Sources */,
 				410C19041C97D440006C20F7 /* Frameworks */,
 				410C19051C97D440006C20F7 /* Resources */,
+				410F232B1DE80F3A00CE1236 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				410F23261DE80F3A00CE1236 /* PBXTargetDependency */,
 			);
 			name = ImageTransfer;
 			productName = ImageTransfer;
 			productReference = 410C19071C97D440006C20F7 /* ImageTransfer.app */;
 			productType = "com.apple.product-type.application";
+		};
+		410F231B1DE80F3A00CE1236 /* ImageTransferExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 410F232A1DE80F3A00CE1236 /* Build configuration list for PBXNativeTarget "ImageTransferExtension" */;
+			buildPhases = (
+				410F23181DE80F3A00CE1236 /* Sources */,
+				410F23191DE80F3A00CE1236 /* Frameworks */,
+				410F231A1DE80F3A00CE1236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageTransferExtension;
+			productName = ImageTransferExtension;
+			productReference = 410F231C1DE80F3A00CE1236 /* ImageTransferExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -144,12 +246,27 @@
 		410C18FF1C97D440006C20F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = qisda;
 				TargetAttributes = {
 					410C19061C97D440006C20F7 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 9A883W693P;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					410F231B1DE80F3A00CE1236 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9A883W693P;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -167,6 +284,7 @@
 			projectRoot = "";
 			targets = (
 				410C19061C97D440006C20F7 /* ImageTransfer */,
+				410F231B1DE80F3A00CE1236 /* ImageTransferExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -183,6 +301,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		410F231A1DE80F3A00CE1236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -191,12 +316,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				410C190F1C97D440006C20F7 /* AppDelegate.m in Sources */,
+				41AD2F8C1E0BD0D400128680 /* ReceivingFileServer.m in Sources */,
 				410C19291C97D78F006C20F7 /* SendingViewController.m in Sources */,
 				410C190C1C97D440006C20F7 /* main.m in Sources */,
+				41DA98D31E03972500D82F98 /* SendingFileClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		410F23181DE80F3A00CE1236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				410F23201DE80F3A00CE1236 /* ShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		410F23261DE80F3A00CE1236 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 410F231B1DE80F3A00CE1236 /* ImageTransferExtension */;
+			targetProxy = 410F23251DE80F3A00CE1236 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		410C191C1C97D440006C20F7 /* Debug */ = {
@@ -212,8 +355,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -235,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -256,8 +401,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -273,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -285,10 +432,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageTransfer/ImageTransfer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ImageTransfer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oem.ios.ImageTransfer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -296,10 +447,54 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ImageTransfer/ImageTransfer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ImageTransfer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oem.ios.ImageTransfer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		410F23281DE80F3A00CE1236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageTransferExtension/ImageTransferExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9A883W693P;
+				INFOPLIST_FILE = ImageTransferExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oem.ios.ImageTransfer.ImageTransferExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		410F23291DE80F3A00CE1236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageTransferExtension/ImageTransferExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9A883W693P;
+				INFOPLIST_FILE = ImageTransferExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oem.ios.ImageTransfer.ImageTransferExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -320,6 +515,15 @@
 			buildConfigurations = (
 				410C191F1C97D440006C20F7 /* Debug */,
 				410C19201C97D440006C20F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		410F232A1DE80F3A00CE1236 /* Build configuration list for PBXNativeTarget "ImageTransferExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				410F23281DE80F3A00CE1236 /* Debug */,
+				410F23291DE80F3A00CE1236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

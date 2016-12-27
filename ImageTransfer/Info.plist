@@ -18,10 +18,27 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.oem.ios.ImageTransfer.ImageShare</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ImageShare</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2016年 Qisda. All rights reserved.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ALLOW TO ACCESS PHOTO?</string>
 	<key>UILaunchStoryboardName</key>
 	<string>SendingViewController</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -41,7 +58,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2016年 Qisda. All rights reserved.</string>
 </dict>
 </plist>
