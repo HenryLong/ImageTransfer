@@ -82,7 +82,7 @@ NSString *description = @"";
             description = [NSString stringWithFormat:@"%@%@\n", description, self.mViewController.fileName.text];
             
             NSUInteger mCount = [self.mViewController processImageList]; //To process others if exist
-            NSLog(@"mCount: %ld",mCount);
+            NSLog(@"mCount: %tu",mCount);
             if(mCount == 0){
                 NSLog(@"Process finished");
                 UIAlertController *alertController =
@@ -114,7 +114,7 @@ NSString *description = @"";
                         headerBuf[i+1] = filebytes[i];
                     }
                     [outputStream write:(const uint8_t *)headerBuf maxLength:headerLen];
-                    NSLog(@"outputStream write header %ld\n", headerLen);
+                    NSLog(@"outputStream write header %tu\n", headerLen);
                     isHeader = false;
                 }
                 

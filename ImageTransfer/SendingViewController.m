@@ -62,7 +62,7 @@
     ALAssetsLibrary *assetLibray = [[ALAssetsLibrary alloc] init];
     [assetLibray assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL] resultBlock:^(ALAsset *asset){
         self.fileName.text = asset.defaultRepresentation.filename; //we have name here
-        self.path = asset.defaultRepresentation.url; //we have path here
+        self.path = [asset.defaultRepresentation.url path]; //we have path here
         NSLog(@"image name is %@", self.fileName.text);
         NSLog(@"image path is %@", self.path);
         [mSendingClient initNetworkCommunication]; //send it directly
@@ -89,7 +89,7 @@
 
 
 - (NSUInteger) processImageList{
-    NSLog(@"imageArrayData count: %ld", self.imageArrayData.count);
+    NSLog(@"imageArrayData count: %tu", self.imageArrayData.count);
     NSUInteger mCount = self.imageArrayData.count;
     if(self.imageArrayData.count != 0){
         //deliver first index
