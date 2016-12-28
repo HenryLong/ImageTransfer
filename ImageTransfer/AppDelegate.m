@@ -62,7 +62,7 @@
 - (void)readFromExtension{
     NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:@"group.ios.image.share"];
     NSMutableArray *url = [shared valueForKey:@"url"];
-    NSMutableArray *imageData = [NSKeyedUnarchiver unarchiveObjectWithData:[shared valueForKey:@"imageData"]] ;
+    NSMutableArray *imageData = [shared valueForKey:@"imageData"] ;
     
     NSLog(@"readUrlFromExtension url: %@", url);
     NSLog(@"readUrlFromExtension imageData: %@", imageData);

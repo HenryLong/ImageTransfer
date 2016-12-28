@@ -40,7 +40,7 @@
                                                   NSURL* url = (NSURL*)item;
                                                   fileName = [url lastPathComponent];
                                                   NSLog(@"fileName: %@",fileName);
-                                                  image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
+                                                  image = [NSData dataWithContentsOfURL:url];
                                                   [self inserDataToArray :[url path] : image];
                                               } //end if([(NSObject*)item isKindOfClass:[NSURL class]])
                                           }
@@ -73,7 +73,8 @@
     // Prepare the URL request
     // this will use the custom url scheme of your app
     // and the paths to the photos you want to share:
-    NSString * urlString = [ NSString stringWithFormat: @"%@://%@", @"ImageShare", ( NULL == invokeArgs ? @"" : invokeArgs ) ];
+    NSLog(@"invokeApp");
+    NSString * urlString = [ NSString stringWithFormat: @"%@://%@", @"ImageShare", ( NULL == invokeArgs ?  @"" : invokeArgs ) ];
     NSURL * url = [ NSURL URLWithString: urlString ];
     
     NSString *className = @"UIApplication";
@@ -98,7 +99,6 @@
 
 - (BOOL)isContentValid {
     NSLog(@"isContentValid");
-    
     NSString * description =@"";
     NSString * extensions = @"jpg/jpeg/JPG/JPEG/png/PNG";
     NSArray * types = [extensions pathComponents];
@@ -119,15 +119,16 @@
     NSLog(@"viewDidDisappear");
 }
 
-- (void) inserDataToArray: (NSString*)fileUrl : (UIImage*)imageData {
+- (void) inserDataToArray: (NSString*)fileUrl : (NSData*)imageData {
     [arrayOfImageUrl addObject:fileUrl];
     [arrayOfImageData addObject:imageData];
 }
 
 - (void)saveToExtension {
+    NSLog(@"saveToExtension");
     NSUserDefaults *shared = [[NSUserDefaults alloc] initWithSuiteName:@"group.ios.image.share"];
     [shared setObject:arrayOfImageUrl forKey:@"url"];
-    [shared setObject:[NSKeyedArchiver archivedDataWithRootObject:arrayOfImageData] forKey:@"imageData"];
+    [shared setObject:arrayOfImageData forKey:@"imageData"];
     [shared synchronize];
 }
 

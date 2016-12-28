@@ -112,11 +112,11 @@
 }
 
 
-- (void)openImageData: (UIImage*)image
+- (void)openImageData: (NSData*)image
 {
     NSLog(@"openImageData: %@",image);
-    self.imageData = UIImageJPEGRepresentation(image, 1.0);   //construct imageData
-    self.imageView.image = image;
+    self.imageData = image;   //construct imageData
+    self.imageView.image = [[UIImage alloc] initWithData:image];
 }
 
 @end

@@ -10,7 +10,7 @@
 #import <Social/Social.h>
 
 @interface ShareViewController : SLComposeServiceViewController {
-    UIImage *image;
+    NSData *image;
     NSString *fileName;
     NSMutableArray *arrayOfImageUrl;
     NSMutableArray *arrayOfImageData;
